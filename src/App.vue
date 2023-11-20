@@ -38,6 +38,9 @@ export default {
       };
       this.friends.push(newFriend);
     },
+    deleteContact(friendId) {
+      this.friends = this.friends.filter(({ id }) => id !== friendId);
+    },
   },
 };
 </script>
@@ -56,6 +59,7 @@ export default {
         :is-favorite="isFavorite"
         :id="id"
         @toggle-favorite="toggleFavoriteStatus"
+        @delete-contact="deleteContact"
       />
     </ul>
   </section>
